@@ -210,3 +210,22 @@ footer a:hover {
     .hero h1 { font-size:2.2em; }
     .hero p { font-size:1em; }
 }
+/* Navbar scroll efekti */
+nav.scrolled {
+    background: rgba(17,17,17,1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Section scroll animasyonu */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+    
