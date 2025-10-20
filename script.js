@@ -25,31 +25,3 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-import { registerUser, loginUser, resetPassword } from './auth.js';
-
-// Register form
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('regEmail').value;
-  const password = document.getElementById('regPassword').value;
-  const displayName = document.getElementById('regName').value;
-  await registerUser(email, password, displayName);
-  e.target.reset();
-});
-
-// Login form
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
-  await loginUser(email, password);
-  e.target.reset();
-});
-
-// Reset password form
-document.getElementById('resetForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('resetEmail').value;
-  await resetPassword(email);
-  e.target.reset();
-});
