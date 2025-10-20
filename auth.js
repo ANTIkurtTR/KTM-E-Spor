@@ -1,35 +1,28 @@
-// auth.js
-
-// Firebase v9 modüler SDK importları
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updateProfile } from "firebase/auth";
-import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
-
-// Firebase config (senin verdiğin)
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBddP_ywDZOm_LH4ZoaLK-6cfy0zItzAGg",
   authDomain: "ktm-e-spor.firebaseapp.com",
   projectId: "ktm-e-spor",
-  storageBucket: "ktm-e-spor.firebasestorage.app",
+  storageBucket: "ktm-e-spor.appspot.com",
   messagingSenderId: "597482404669",
   appId: "1:597482404669:web:b525c8eabbc7a4df91a354",
   measurementId: "G-RC86SG26NY"
 };
 
 // Firebase başlat
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-// Register fonksiyonu
-export async function registerUser(email, password, displayName) {
+// Kayıt fonksiyonu
+async function registerUser(email, password, displayName) {
   try {
-    const userCred = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(userCred.user, { displayName });
-    await setDoc(doc(db, "users", userCred.user.uid), {
+    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+    await userCred.user.updateProfile({ displayName });
+    await db.collection('users').doc(userCred.user.uid).set({
       email,
       displayName,
-      createdAt: serverTimestamp()
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
     alert('Kayıt başarılı!');
   } catch (err) {
@@ -37,28 +30,31 @@ export async function registerUser(email, password, displayName) {
   }
 }
 
-// Login fonksiyonu
-export async function loginUser(email, password) {
+// Giriş fonksiyonu
+async function loginUser(email, password) {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    await auth.signInWithEmailAndPassword(email, password);
     alert('Giriş başarılı!');
   } catch (err) {
     alert(err.message);
   }
 }
 
-// Şifre sıfırlama
-export async function resetPassword(email) {
+// Şifre sıfırlama fonksiyonu
+async function resetPassword(email) {
   try {
-    await sendPasswordResetEmail(auth, email);
-    alert('Sıfırlama linki gönderildi, posta kutunu kontrol et.');
+    await auth.sendPasswordResetEmail(email);
+    alert('Şifre sıfırlama linki gönderildi!');
   } catch (err) {
     alert(err.message);
   }
 }
 
-// Login durumunu takip et (opsiyonel)
-onAuthStateChanged(auth, user => {
+// Oturum durumu takibi
+auth.onAuthStateChanged(user => {
   if (user) console.log('Giriş yapmış:', user.email);
   else console.log('Kullanıcı çıkış yaptı');
 });
+
+// Fonksiyonları export et (script.js'de kullanmak için)
+export { registerUser, loginUser, resetPassword };
