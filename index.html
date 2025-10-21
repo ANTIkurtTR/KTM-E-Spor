@@ -11,7 +11,8 @@
     <!-- Navbar -->
     <nav>
         <div class="logo">KTM E-Spor</div>
-        <ul>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <ul id="navLinks">
             <li><a href="#home">Anasayfa</a></li>
             <li><a href="#about">Hakkımda</a></li>
             <li><a href="#schedule">Yayın Saatleri</a></li>
@@ -22,14 +23,14 @@
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>KTM E-Spor</h1>
             <p>Kick ve Instagram vuruş videoları ile PUBG Mobile ve Gaming içerikleri</p>
         </div>
     </section>
 
     <!-- Hakkımda -->
-    <section class="about" id="about">
+    <section class="about fade-in" id="about">
         <img src="https://imgur.com/UYVGT8n.jpg" alt="Profil">
         <div class="about-text">
             <h2>Hakkımda</h2>
@@ -40,7 +41,7 @@
     </section>
 
     <!-- Yayın Saatleri -->
-    <section id="schedule">
+    <section id="schedule" class="fade-in">
         <h2>Yayın Saatleri</h2>
         <div class="schedule">
             <div class="schedule-card">
@@ -59,7 +60,7 @@
     </section>
 
     <!-- Program / Video Galerisi -->
-    <section id="program">
+    <section id="program" class="fade-in">
         <h2>Son Vuruş Videoları</h2>
         <div class="video-gallery">
             <div class="video-card">
@@ -75,7 +76,7 @@
     </section>
 
     <!-- İletişim -->
-    <section class="contact" id="contact">
+    <section class="contact fade-in" id="contact">
         <h2>İletişim</h2>
         <form id="contactForm" action="https://formspree.io/f/mwpryryo" method="POST">
             <input type="text" name="name" placeholder="Adınız" required>
@@ -92,24 +93,11 @@
         <a href="#">Kick</a>
         <a href="#">Instagram</a>
         <a href="#">YouTube</a>
-        <!-- Domain ve IP bilgisi -->
         <p style="margin-top:5px; font-size:0.9em; color:gray;">
             Domain: ktmespor.linkpc.net | IP: 78.174.210.112
         </p>
     </footer>
 
-    <!-- JS dosyası -->
     <script src="script.js"></script>
-
-    <!-- Opsiyonel: console'da gösterim -->
-    <script>
-        const siteInfo = {
-            domain: "ktmespor.linkpc.net",
-            ip: "78.174.210.112"
-        };
-        console.log("Site Domain:", siteInfo.domain);
-        console.log("Site IP:", siteInfo.ip);
-    </script>
-
 </body>
 </html>
