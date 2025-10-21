@@ -1,27 +1,24 @@
-// Mevcut log
-console.log("KTM E-Spor Web Sitesi Hazır!");
+// Navbar toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-// Navbar scroll efekti
-const navbar = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// Scroll efektleri
+const fadeElements = document.querySelectorAll(".fade-in");
+
+function handleScroll() {
+  fadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add("show");
     }
-});
+  });
+}
 
-// Section scroll animasyonu
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight / 5 * 4;
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);
 
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < triggerBottom) {
-            section.classList.add('active');
-        } else {
-            section.classList.remove('active');
-        }
-    });
-});
+console.log("KTM E-Spor Web Sitesi mobil uyumlu hale getirildi ✅");
