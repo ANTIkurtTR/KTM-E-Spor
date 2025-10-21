@@ -1,24 +1,21 @@
-// Navbar toggle
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+console.log("KTM E-Spor Responsive v1.0");
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+// Hamburger menü kontrolü
+const toggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  toggle.classList.toggle('open');
 });
 
-// Scroll efektleri
-const fadeElements = document.querySelectorAll(".fade-in");
-
-function handleScroll() {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
-}
-
-window.addEventListener("scroll", handleScroll);
-window.addEventListener("load", handleScroll);
-
-console.log("KTM E-Spor Web Sitesi mobil uyumlu hale getirildi ✅");
+// Navbar scroll efekti
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if(window.scrollY > 50){
+    nav.style.background = '#000';
+    nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
+  } else {
+    nav.style.background = '#111';
+    nav.style.boxShadow = 'none';
+  }
+});
