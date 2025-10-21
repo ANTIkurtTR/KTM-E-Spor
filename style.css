@@ -1,14 +1,15 @@
-/* Genel Reset */
+/* GENEL RESET */
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
 
 body {
     background-color: #1a1a1a;
     color: #f0f0f0;
+    overflow-x: hidden;
 }
 
 a { text-decoration:none; color: inherit; }
 
-/* Navbar */
+/* NAVBAR */
 nav {
     display:flex;
     justify-content: space-between;
@@ -29,6 +30,7 @@ nav .logo {
 nav ul {
     display:flex;
     list-style:none;
+    transition: all 0.3s ease;
 }
 
 nav ul li {
@@ -44,7 +46,15 @@ nav ul li a:hover {
     color: #3b82f6;
 }
 
-/* Hero Section */
+/* Hamburger menü */
+.menu-toggle {
+    display:none;
+    font-size:2em;
+    color:#f97316;
+    cursor:pointer;
+}
+
+/* HERO */
 .hero {
     display:flex;
     align-items:center;
@@ -69,18 +79,19 @@ nav ul li a:hover {
     color:#fff;
 }
 
-.hero h1 {
-    font-size:3em;
-    margin-bottom:20px;
-    color:#f97316;
+/* ANİMASYONLAR */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
-.hero p {
-    font-size:1.2em;
-    color:#e5e5e5;
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Sections */
+/* SECTIONS */
 section {
     padding:80px 5%;
 }
@@ -93,139 +104,50 @@ section h2 {
     text-align:center;
 }
 
-/* Video Galerisi */
+/* VIDEO GALERİ */
 .video-gallery {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap:25px;
 }
 
-.video-card {
-    background:#111;
-    padding:15px;
-    border:2px solid #f97316;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-.video-card:hover {
-    border-color:#3b82f6;
-}
-
-.video-card iframe {
-    width:100%;
-    height:200px;
-    border-radius:8px;
-}
-
-/* Yayın Saatleri */
-.schedule {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.schedule-card {
-    background:#111;
-    border:2px solid #3b82f6;
-    padding:20px;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-.schedule-card:hover {
-    border-color:#f97316;
-}
-
-/* Hakkımda */
-.about {
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:40px;
-}
-
-.about img {
-    width:300px;
-    border-radius:15px;
-    border:3px solid #f97316;
-}
-
-.about-text {
-    flex:1;
-    min-width:250px;
-}
-
-/* Contact Form */
-.contact form {
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    max-width:500px;
-    margin:0 auto;
-}
-
-.contact input, .contact textarea {
-    padding:12px;
-    border-radius:8px;
-    border:none;
-    outline:none;
-}
-
-.contact button {
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#f97316;
-    color:#fff;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.contact button:hover {
-    background:#3b82f6;
-}
-
-/* Footer */
-footer {
-    background:#111;
-    padding:30px 5%;
-    text-align:center;
-    border-top:2px solid #f97316;
-}
-
-footer a {
-    margin:0 10px;
-    color:#f97316;
-    transition:0.3s;
-}
-
-footer a:hover {
-    color:#3b82f6;
-}
-
+/* RESPONSIVE */
 @media(max-width:768px){
-    .hero h1 { font-size:2.2em; }
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top:60px;
+        right:0;
+        width: 60%;
+        background:#111;
+        display:none;
+        border-left: 2px solid #f97316;
+    }
+
+    nav ul.active {
+        display:flex;
+    }
+
+    nav ul li {
+        margin:15px 0;
+        text-align:center;
+    }
+
+    .menu-toggle {
+        display:block;
+    }
+
+    .about {
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .about img {
+        width:80%;
+        max-width:300px;
+    }
+
+    .hero h1 { font-size:2em; }
     .hero p { font-size:1em; }
+    section { padding:60px 5%; }
 }
-/* Navbar scroll efekti */
-nav.scrolled {
-    background: rgba(17,17,17,1);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-/* Section scroll animasyonu */
-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s ease;
-}
-
-section.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-    
