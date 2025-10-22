@@ -1,143 +1,115 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>KTM E-Spor</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM E-Spor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- LOADING SCREEN (PUBG style) -->
-  <div id="loadingScreen" class="loading-screen">
-    <div class="loading-inner">
-      <div class="logo">KTM E-Spor</div>
-      <div class="loading-bar">
-        <div class="loading-progress" id="loadingProgress"></div>
-      </div>
-      <div class="loading-text" id="loadingText">Yükleniyor...</div>
-    </div>
-  </div>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">KTM E-Spor</div>
+        <ul>
+            <li><a href="#home">Anasayfa</a></li>
+            <li><a href="#about">Hakkımda</a></li>
+            <li><a href="#schedule">Yayın Saatleri</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
 
-  <!-- NAV -->
-  <nav class="navbar">
-    <div class="logo">KTM E-Spor</div>
-    <div class="menu-toggle" id="menuToggle" aria-label="menu">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Anasayfa</a></li>
-      <li><a href="#about">Hakkımda</a></li>
-      <li><a href="#schedule">Yayın Saatleri</a></li>
-      <li><a href="#program">Program</a></li>
-      <li><a href="#team">Takım</a></li>
-      <li><a href="#contact">İletişim</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <h1>KTM E-Spor</h1>
-      <p>Kick ve Instagram vuruş videoları ile PUBG Mobile ve Gaming içerikleri</p>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="about-left">
-        <img src="https://i.imgur.com/UYVGT8n.jpg" alt="Profil">
-      </div>
-      <div class="about-right">
-        <h2>Hakkımda</h2>
-        <p>Selam Dostlar! Ben KTM E-Spor kurucusu KTM』R3CL4IMツ. Bu siteyi takipçilerim için açtım — Instagram, YouTube ve Kick içeriklerimizi buradan takip edebilirsiniz. Aim. Shoot. Win.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCHEDULE -->
-  <section id="schedule" class="section">
-    <h2>Yayın Saatleri</h2>
-    <div class="schedule">
-      <div class="schedule-card"><h3>Cuma</h3><p>20:00 - 22:00</p></div>
-      <div class="schedule-card"><h3>Cumartesi</h3><p>20:00 - 22:00</p></div>
-      <div class="schedule-card"><h3>Pazar</h3><p>20:00 - 22:00</p></div>
-    </div>
-  </section>
-
-  <!-- PROGRAM / VIDEOS -->
-  <section id="program" class="section">
-    <h2>Son Vuruş Videoları</h2>
-    <div class="video-gallery">
-      <div class="video-card"><iframe src="https://youtube.com/embed/TH5iTEtnXXk" frameborder="0" allowfullscreen></iframe></div>
-      <div class="video-card"><iframe src="https://youtube.com/embed/ZsOy6I8Oxq4" frameborder="0" allowfullscreen></iframe></div>
-      <div class="video-card"><iframe src="https://youtube.com/embed/uGg63xW8anQ" frameborder="0" allowfullscreen></iframe></div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team" class="section">
-    <div class="team-header">
-      <h2>Takım Üyeleri</h2>
-      <div id="adminControls" class="admin-controls" style="display:none;">
-        <button id="openAddMember" class="btn neon">+ Üye Ekle</button>
-        <button id="logoutBtn" class="btn">Çıkış Yap</button>
-      </div>
-    </div>
-
-    <div id="teamGrid" class="team-grid"></div>
-
-    <!-- Add Member Modal -->
-    <div id="addModal" class="modal" style="display:none;">
-      <div class="modal-inner">
-        <h3>Yeni Üye Ekle</h3>
-        <input id="newName" placeholder="İsim (nick)" />
-        <input id="newRole" placeholder="Rol (örn: Rush, Support, Lider)" />
-        <input id="newAvatar" placeholder="Avatar URL (opsiyonel)" />
-        <div class="modal-actions">
-          <button id="saveMember" class="btn neon">Kaydet</button>
-          <button id="cancelAdd" class="btn">İptal</button>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>KTM E-Spor</h1>
+            <p>Kick ve Instagram vuruş videoları ile PUBG Mobile ve Gaming içerikleri</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <h2>İletişim</h2>
-    <form id="contactForm" action="https://formspree.io/f/mwpryryo" method="POST" class="contact-form">
-      <input name="name" placeholder="Adınız" required />
-      <input name="email" type="email" placeholder="Email" required />
-      <textarea name="message" rows="5" placeholder="Mesajınız" required></textarea>
-      <button type="submit" class="btn neon">Gönder</button>
-    </form>
-  </section>
+    <!-- Hakkımda -->
+    <section class="about" id="about">
+        <img src="https://imgur.com/UYVGT8n.jpg" alt="Profil">
+        <div class="about-text">
+            <h2>Hakkımda</h2>
+            <p>Selam Dostlar Ben KTM E-Spor kurucusu KTM』R3CL4IMツ. Bu siteyi siz değerli takipçilerim için açtım buradan Instagram, Youtube gibi platformlarımızdan da takip edebilesiniz diye kurdum umarım hoşunaza gider. E-Spor takımına katılmak için aşağıdan bana mesaj atmanız yeterli. Keyifli ve bol Winli günler dilerim. 
+              KTM E-Spor 
+              Aim. Shoot. Win</p>
+        </div>
+    </section>
 
-  <!-- FOOTER (küçük admin giriş tetikleyicisi) -->
-  <footer>
-    <p>© 2025 KTM E-Spor</p>
-    <div class="footer-actions">
-      <a href="#" id="discord">Discord</a>
-      <a href="#" id="instagram">Instagram</a>
-      <button id="adminToggle" class="small-admin">Admin Girişi</button>
-    </div>
-  </footer>
+    <!-- Yayın Saatleri -->
+    <section id="schedule">
+        <h2>Yayın Saatleri</h2>
+        <div class="schedule">
+            <div class="schedule-card">
+                <h3>Cuma</h3>
+                <p>20:00 - 22:00</p>
+            </div>
+            <div class="schedule-card">
+                <h3>Cumartesi</h3>
+                <p>20:00 - 22:00</p>
+            </div>
+            <div class="schedule-card">
+                <h3>Pazar</h3>
+                <p>20:00 - 22:00</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Admin login modal -->
-  <div id="loginModal" class="modal" style="display:none;">
-    <div class="modal-inner">
-      <h3>Admin Girişi</h3>
-      <input id="adminUser" placeholder="Kullanıcı Adı" />
-      <input id="adminPass" type="password" placeholder="Şifre" />
-      <div class="modal-actions">
-        <button id="adminLoginBtn" class="btn neon">Giriş</button>
-        <button id="adminCancel" class="btn">İptal</button>
-      </div>
-      <p class="hint">Admin: <em>sessionStorage</em> ile oturum sağlanır (tarayıcı kapandığında çıkış olur)</p>
-    </div>
-  </div>
+    <!-- Program / Video Galerisi -->
+    <section id="program">
+        <h2>Son Vuruş Videoları</h2>
+        <div class="video-gallery">
+            <div class="video-card">
+                <iframe src="https://youtube.com/embed/TH5iTEtnXXk?si=mGfj9LtG4CnEczux" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-card">
+                <iframe src="https://youtube.com/embed/ZsOy6I8Oxq4?si=OqapMCtTAvAnZ4uk" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-card">
+                <iframe src="https://youtube.com/embed/uGg63xW8anQ?si=ls1WWH4QS-8iv2Q2" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- İletişim -->
+    <section class="contact" id="contact">
+        <h2>İletişim</h2>
+        <form id="contactForm" action="https://formspree.io/f/mwpryryo" method="POST">
+            <input type="text" name="name" placeholder="Adınız" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+        <p id="successMessage" style="color:green; display:none; margin-top:10px;">Mesajınız gönderildi!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 KTM E-Spor | Sosyal Medya:</p>
+        <a href="#">Kick</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <!-- Domain ve IP bilgisi -->
+        <p style="margin-top:5px; font-size:0.9em; color:gray;">
+            Domain: ktmespor.linkpc.net | IP: 78.174.210.112
+        </p>
+    </footer>
+
+    <!-- JS dosyası -->
+    <script src="script.js"></script>
+
+    <!-- Opsiyonel: console'da gösterim -->
+    <script>
+        const siteInfo = {
+            domain: "ktmespor.linkpc.net",
+            ip: "78.174.210.112"
+        };
+        console.log("Site Domain:", siteInfo.domain);
+        console.log("Site IP:", siteInfo.ip);
+    </script>
+
 </body>
 </html>
