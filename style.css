@@ -1,41 +1,212 @@
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
-body {background:#1a1a1a;color:#f0f0f0;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
+/* Genel Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
+
+body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+a { text-decoration:none; color: inherit; }
 
 /* Navbar */
 nav {
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 5%;background:#111;position:sticky;top:0;z-index:100;
-}
-.logo {font-family:'Orbitron',sans-serif;font-size:1.8em;color:#f97316;}
-.nav-links {display:flex;list-style:none;transition:0.4s;}
-.nav-links li {margin-left:25px;}
-.nav-links a {transition:0.3s;}
-.nav-links a:hover {color:#3b82f6;}
-
-/* Hamburger menu */
-.menu-toggle {display:none;flex-direction:column;cursor:pointer;}
-.menu-toggle span {
-  background:#f0f0f0;height:3px;width:25px;margin:4px 0;border-radius:2px;
-  transition:0.3s;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 15px 5%;
+    background: #111;
+    position: sticky;
+    top:0;
+    z-index:100;
 }
 
-/* Hero */
+nav .logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+    color: #f97316;
+}
+
+nav ul {
+    display:flex;
+    list-style:none;
+}
+
+nav ul li {
+    margin-left:25px;
+}
+
+nav ul li a {
+    transition: 0.3s;
+    color:#f0f0f0;
+}
+
+nav ul li a:hover {
+    color: #3b82f6;
+}
+
+/* Hero Section */
 .hero {
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  height:80vh;background:url('https://imgur.com/O3YVx8W.jpg') center/cover no-repeat;position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    height:80vh;
+    background: url('https://imgur.com/O3YVx8W.jpg') center/cover no-repeat;
+    position: relative;
 }
-.hero::after {content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
-.hero-content {position:relative;z-index:1;color:#fff;}
-.hero h1 {font-size:3em;margin-bottom:20px;color:#f97316;}
-.hero p {font-size:1.2em;color:#e5e5e5;}
 
-section {padding:80px 5%;}
-section h2 {font-family:'Orbitron',sans-serif;color:#f97316;font-size:2em;margin-bottom:40px;text-align:center;}
+.hero::after {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.6);
+}
 
-.video-gallery {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
-.video-card {background:#111;padding:15px;border:2px solid #f97316;border-radius:12px;transition:0.3s;}
-.video-card:hover{border-color:#3b82f6;}
-.video-card iframe {width:100%;height:200px;border-radius:8px;}
+.hero-content {
+    position: relative;
+    z-index:1;
+    color:#fff;
+}
 
-.schedule {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:center;}
+.hero h1 {
+    font-size:3em;
+    margin-bottom:20px;
+    color:#f97316;
+}
+
+.hero p {
+    font-size:1.2em;
+    color:#e5e5e5;
+}
+
+/* Sections */
+section {
+    padding:80px 5%;
+}
+
+section h2 {
+    font-family: 'Orbitron', sans-serif;
+    color:#f97316;
+    font-size:2em;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+/* Video Galerisi */
+.video-gallery {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:25px;
+}
+
+.video-card {
+    background:#111;
+    padding:15px;
+    border:2px solid #f97316;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.video-card:hover {
+    border-color:#3b82f6;
+}
+
+.video-card iframe {
+    width:100%;
+    height:200px;
+    border-radius:8px;
+}
+
+/* Yayın Saatleri */
+.schedule {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.schedule-card {
+    background:#111;
+    border:2px solid #3b82f6;
+    padding:20px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.schedule-card:hover {
+    border-color:#f97316;
+}
+
+/* Hakkımda */
+.about {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:40px;
+}
+
+.about img {
+    width:300px;
+    border-radius:15px;
+    border:3px solid #f97316;
+}
+
+.about-text {
+    flex:1;
+    min-width:250px;
+}
+
+/* Contact Form */
+.contact form {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-width:500px;
+    margin:0 auto;
+}
+
+.contact input, .contact textarea {
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+}
+
+.contact button {
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#f97316;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.contact button:hover {
+    background:#3b82f6;
+}
+
+/* Footer */
+footer {
+    background:#111;
+    padding:30px 5%;
+    text-align:center;
+    border-top:2px solid #f97316;
+}
+
+footer a {
+    margin:0 10px;
+    color:#f97316;
+    transition:0.3s;
+}
+
+footer a:hover {
+    color:#3b82f6;
+}
+
+@media(max-width:768px){
+    .hero h1 { font-size:2.2em; }
+    .hero p { font-size:1em; }
+}
